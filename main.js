@@ -1,4 +1,4 @@
-let mario = new Mario(10, 10, 70, 70)
+let mario = new Mario(10, 800, 70, 70)
 let boom = new Boom(800, 800, 60, 60)
 let bomm = new Boom(700, 800, 60, 60)
 let mush = new Mush(800, 70, 70)
@@ -15,11 +15,14 @@ window.addEventListener('keydown', (e) => {
         case ' ':
             mario.move(mario.x, mario.y - 200, 'tren')
             break;
+            case 'ArrowDown':
+                mario.move(mario.x,mario.y=790,'duoi')
         default:
             break;
     }
 
 })
+
 let diem = 0
 function update() {
 
@@ -42,26 +45,41 @@ function update() {
         boom.x = 800
     }
     if (mario.x < mush.x + mush.width && mario.x + mario.width > mush.x && mario.y < mush.y + mush.height && mario.y + mario.height > mush.y) {
-        console.log(1);
-        diem--
-        bomm.ctx.clearRect(0, 0, bomm.canvas.width, bomm.canvas.height)
+        diem-1
+       
         bomm.x = Math.random() * 800
-    } if (diem <= -1) {
-        alert("thua")
+    } 
+    if (diem <= -1) { 
+        mario.ctx.fillText("Bạn đã thua",500,500)
+        clearInterval(set)
         diem = 0
-    }
+
+             
+     }if(diem === 2){
+        mario.ctx.fillText("Bạn đã thắng",500,500)
+        clearInterval(set)
+     }
+     mario.ctx.font="50px Roboto"
+     mario.ctx.fillText("Điểm số:"+diem,40,60)
+    
+
+        
     mush.drawMush()
     boom.drawBoom()
     mario.drawMario()
     bomm.drawBoom()
+    mario.drawStroke()
 }
+
 function down() {
     if (mario.y < 790) {
-        mario.move(mario.x, mario.y + 20, mario.tyt)
+        mario.move(mario.x, mario.y + 50, mario.tyt)
     }
 
 }
 
-setInterval(update, 10)
 
-setInterval(down, 100)
+let set =setInterval(update, 20)
+
+ let trt = setInterval(down,200)
+  

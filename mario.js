@@ -9,6 +9,10 @@ class Mario {
         this.ctx = this.canvas.getContext('2d')
     
     }
+    drawStroke(){      
+          
+         
+    }
     drawMario(src) {
         let img = new Image()
         img.onload = () => {
@@ -21,20 +25,20 @@ class Mario {
         this.x = x
         this.y = y
         this.tyt = tyt
-        // switch (tyt) {
-        //     case 'trai':
-        //         this.drawMario('./img/trai.png')
-        //         break;
-        //     case 'phai':
-        //         this.drawMario('./img/phai.png')
-        //         break;
-        //     case 'tren':
-        //         this.drawMario('')
-        //         break;
-        //     default: this.drawMario('./img/mario.png')
-        //         break;
+        switch (tyt) {
+            case 'trai':
+                this.drawMario('./img/trai.png')
+                break;
+            case 'phai':
+                this.drawMario('./img/phai.png')
+                break;
+            case 'tren':
+                this.drawMario('')
+                break;
+            default: this.drawMario('./img/mario.png')
+                break;
               
-        // }
+        }
     }
     
 }
