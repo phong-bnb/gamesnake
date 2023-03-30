@@ -7,7 +7,6 @@ class Mario {
         this.height = height;
         this.canvas = document.getElementById("mycanvas")
         this.ctx = this.canvas.getContext('2d')
-        // this.drawMario('./img.mario.png')
     
     }
     drawMario(src) {
@@ -22,7 +21,6 @@ class Mario {
         this.x = x
         this.y = y
         this.tyt = tyt
-        mario.x+10
         // switch (tyt) {
         //     case 'trai':
         //         this.drawMario('./img/trai.png')
