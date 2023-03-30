@@ -1,20 +1,18 @@
 class Mush {
-    constructor(x, y, width, height) {
-        this.x = x;
+    constructor(y, width, height) {
+        this.x = Math.random() * 800;
         this.y = y;
         this.width = width;
         this.height = height;
         this.canvas = document.getElementById("mycanvas")
         this.ctx = this.canvas.getContext('2d')
+        this.drawMush('./img.namngu.png')
     }
-        drawMush() {
-            let img1 = new Image()
-            img1.onload = () => {
-                this.ctx.drawImage(img1, this.x, this.y, this.width, this.height)
-            }
-            img1.src = './img/namngu.png'
+    drawMush() {
+        let img = new Image()
+        img.onload = () => {
+            this.ctx.drawImage(img, this.x, this.y, this.width, this.height)
         }
-}
-
-let mush = new Mush(20,20,60,60)
-mush.drawMush('./img/namngu.png')
+        img.src = './img/namngu.png'
+    }
+ }
