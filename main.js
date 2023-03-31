@@ -29,7 +29,6 @@ function update() {
     if (mario.x < mush.x + mush.width && mario.x + mario.width > mush.x && mario.y < mush.y + mush.height && mario.y + mario.height > mush.y) {
 
         diem++
-        mush.ctx.clearRect(0, 0, mush.canvas.width, mush.canvas.height)
         mush.x = Math.random() * 800
     }
 
@@ -38,7 +37,6 @@ function update() {
 
     } else {
         boom.x -= 2
-        boom.ctx.clearRect(0, 0, mush.canvas.width, mush.canvas.height)
     }
     if (mario.x < boom.x + boom.width && mario.x + mario.width > boom.x && mario.y < boom.y + boom.height && mario.y + mario.height > boom.y) {
         diem -= 2
@@ -51,7 +49,7 @@ function update() {
     } 
     if (diem <= -1) { 
         mario.ctx.fillText("Bạn đã thua",500,500)
-        clearInterval(set)
+        // clearInterval(set)
         diem = 0
 
              
@@ -63,23 +61,24 @@ function update() {
      mario.ctx.fillText("Điểm số:"+diem,40,60)
     
 
+     mario.ctx.clearRect(0, 0, mush.canvas.width, mush.canvas.height)
         
     mush.drawMush()
     boom.drawBoom()
     mario.drawMario()
     bomm.drawBoom()
     mario.drawStroke()
-}
 
+}
+setInterval(update,10)
 function down() {
     if (mario.y < 790) {
         mario.move(mario.x, mario.y + 50, mario.tyt)
     }
 
 }
+ var audio = document.querySelector("audio")
 
-
-let set =setInterval(update, 20)
-
- let trt = setInterval(down,200)
+ 
+ let trt = setInterval(down,1000) 
   
